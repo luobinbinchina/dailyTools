@@ -1,10 +1,9 @@
 <template>
-  <page title="chameleon">
-      <scroller height="{{-1}}">
-        <view class="scroller-wrap">
-          <demo-com title="{{title}}" image-src="{{chameleonSrc}}"></demo-com>
-        </view>
-      </scroller>
+  <page>
+    <view class="scroller-wrap">
+      <slogon-slider class="slogon-wrapper" title="{{title}}" image-src="{{chameleonSrc}}"></slogon-slider>
+      <search-left-icon class="search-wrapper" c-bind:searchEvent="searchTool"></search-left-icon>
+    </view>
   </page>
 </template>
 
@@ -15,25 +14,40 @@ class Index  {
     title: "chameleon",
     chameleonSrc: require('../../assets/images/chameleon.png')
   }
+
+  methods = {
+    searchTool(e) {
+      console.log('searchTool', e)
+    }
+  }
 }
 
 export default new Index();
 
 </script>
+
 <style>
-
-.scroller-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
+  .scroller-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20cpx;
+    .slogon-wrapper {
+      width: 100%;
+      margin-bottom: 20cpx;
+    }
+    .search-wrapper {
+      width: 100%;
+    }
+  }
 </style>
+
 <script cml-type="json">
 {
   "base": {
     "usingComponents": {
-      "demo-com": "/components/demo-com/demo-com"
+      "slogon-slider": "/components/slogon-slider/slogon-slider",
+      "search-left-icon": "/components/search-left-icon/search-left-icon"
     }
   },
   "wx": {

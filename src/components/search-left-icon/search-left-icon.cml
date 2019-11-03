@@ -1,0 +1,79 @@
+<template>
+  <view class="search-left-icon">
+    <image class="search-icon" src="{{searchIcon}}"></image>
+    <input 
+      cstyle="width: 550cpx; padding: 5cpx; height: 60cpx;line-height: 60cpx;border: none;font-size: 24cpx;" 
+      placeholder='请输入想用的工具'
+      return-key-typ="search"
+      c-bind:input="getSearchValue"
+    >
+    </input>
+    <text class="search-txt" c-bind:tap="triggerSearchEvent">搜 索</text>
+  </view>
+</template>
+
+<script>
+
+class SearchLeftIcon {
+  props = {
+  }
+
+  data = {
+    searchIcon: require("../../assets/images/search.png"),
+    searchValue: ""
+  }
+
+  computed = {
+
+  }
+
+  watch  = {
+  }
+
+  methods = {
+    triggerSearchEvent() {
+      this.$cmlEmit('searchEvent', {
+        searchValue: this.searchValue
+      })
+    },
+    getSearchValue(e) {
+      this.searchValue = e.detail.value
+    }
+  }
+}
+
+export default new SearchLeftIcon();
+
+</script>
+
+<style scoped lang="stylus">
+
+  .search-left-icon {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1cpx solid #cccccc;
+    overflow: hidden;
+    width: 100%;
+    padding: 3cpx 10cpx;
+    .search-icon {
+      width: 40cpx;
+      height: 40cpx;
+    }
+    .search-txt {
+      color: #007ACC;
+      font-weight: bold;
+      font-size: 24cpx;
+    }
+  }
+  
+</style>
+
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {}
+  }
+}
+</script>

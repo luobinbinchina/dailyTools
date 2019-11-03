@@ -1,0 +1,71 @@
+<template>
+  <view class="slogon-slider">
+    <carousel class="container" indicator-dots="{{true}}"  current="{{1}}" circular="{{true}}">
+      <carousel-item>
+        <view class="carousel-item" style="background-color: #EBDEAA">做好每一个实用工具</view>
+      </carousel-item>
+      <carousel-item>
+        <view class="carousel-item" style="background-color: #E3EDCD">做好每一个实用工具</view>
+      </carousel-item>
+      <carousel-item>
+        <view class="carousel-item" style="background-color: #EAEAEF">做好每一个实用工具</view>
+      </carousel-item>
+    </carousel>
+  </view>
+</template>
+
+<script>
+
+class SlogonSlider {
+  props = {
+    title: {
+      type: String,
+      default: ''
+    },
+    imageSrc: {
+      type: String,
+      default: ''
+    }
+  }
+
+  data = {
+  }
+
+  computed = {
+  }
+
+  watch  = {
+  }
+
+  methods = {
+  }
+
+}
+
+export default new SlogonSlider();
+
+</script>
+
+<style scoped lang="stylus">
+  .slogon-slider {
+    width: 100%;
+    .container {
+      height: 150cpx;
+    }
+    .carousel-item {
+      width: 710cpx;
+      text-align: center;
+      height: 150cpx;
+      line-height: 150cpx;
+    }
+  }
+  
+</style>
+
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {}
+  }
+}
+</script>
